@@ -1,6 +1,6 @@
 FROM maven:3.9.5-openjdk-21 AS build
 COPY . .
-RUN maven clean package -DskipTests
+RUN maven clean install
 
 COPY --from=build /target/end-to-end-0.0.1-SNAPSHOT.jar end-to-end.jar
 EXPOSE 8080
